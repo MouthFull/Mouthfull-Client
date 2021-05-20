@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <form
+        #registerFor="ngForm"
+        autocomplete="off"
+        (ngSubmit)="addIngredient()"
+      >
+        <hr />
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            name="ingredient"
+            [(ngModel)]="ingredient"
+            placeholder="add ingredient"
+          />
+        </div>
+
+        <div class="form-group text-center mt-2">
+          <button class="btn btn-success mr-2" type="submit">
+            Add Ingredient
+          </button>
+          <!-- <button class="btn btn-success mr-2" type="button" (click)=""> -->
+          <button
+            class="btn btn-success mr-2"
+            type="button"
+            (click)="clearIngredients()"
+          >
+            Clear Ingredients
+          </button>
+          <button
+            style="width: 90%"
+            class="btn btn-info mr-2 mt-2"
+            type="button"
+            (click)="getRecipe()"
+          >
+            Get Recipe!
+          </button>
+        </div>
+      </form>
+
+      <h2>Your ingredients:</h2>
+
+      <ul class="list-group" *ngFor="let ingredient of this.ingredients">
+        <li class="list-group-item">
+          <div class="custom-control custom-checkbox">
+            <input
+              type="checkbox"
+              class="custom-control-input"
+              id="{{ ingredient }}"
+              name="ingredient"
+              value="{{ ingredient }}"
+              (click)="removeIngredient(ingredient)"
+            />
+            <label class="custom-control-label" for="{{ ingredient }}">
+              {{ ingredient }}</label
+            >
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
