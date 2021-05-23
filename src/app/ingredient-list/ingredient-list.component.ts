@@ -49,6 +49,41 @@ export class IngredientListComponent implements OnInit {
   }
 
   getRecipe() {
+    // let url =
+    //   'https://mouthfullservice.azurewebsites.net/api/mouthfull/broccoli';
+    let url = 'http://localhost:5000/api/test/ingredient';
+
     console.log('Do the API request for a recipe!');
+
+    function pass(res) {
+      var result = res.json();
+      result.then(
+        function (data) {
+          console.log(data);
+        },
+        function (err) {
+          console.error(err);
+        }
+      );
+    }
+
+    function fail(res) {
+      console.error(res);
+    }
+
+    // let response = fetch(url, { method: 'get' });
+
+    // response.then(pass, fail);
   }
 }
+
+//* id,
+//* EntityId,
+//* title,
+//* image,
+//* favorite,
+//* comment,
+//*
+//* missed ingredients  -	 missedIngredientCount
+//* unused ingredients  -	 unusedIngredientCount
+//* usedIngredients		  -	 usedIngredientCount

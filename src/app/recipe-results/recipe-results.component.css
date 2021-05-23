@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Pattaya&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
+
+h1 {
+  text-align: center;
+  color: dodgerblue;
+  font-family: "Pattaya", sans-serif;
+}
+
+img {
+  width: 170px;
+}
+
+p,
+.title {
+  font-family: "Caveat", cursive;
+}
+
+.card {
+  width: 200px;
+}
