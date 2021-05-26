@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-recipe-results',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe-results.component.css'],
 })
 export class RecipeResultsComponent implements OnInit {
+  subject: Subject<string>;
   recipes = [
     {
       id: 658509,
@@ -234,7 +236,12 @@ export class RecipeResultsComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor() {
+    this.subject = new Subject();
+    this.subject.subscribe((value) => {
+      console.log('got: ', value);
+    });
+  }
 
   ngOnInit(): void {}
 }

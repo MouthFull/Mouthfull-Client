@@ -9,6 +9,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ToastrModule } from 'ngx-toastr';
 import { IngredientListComponent } from './ingredient-list/ingredient-list.component';
 import { RecipeResultsComponent } from './recipe-results/recipe-results.component';
+import { FoodGroupsComponent } from './food-groups/food-groups.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { RecipeResultsComponent } from './recipe-results/recipe-results.componen
     NavBarComponent,
     IngredientListComponent,
     RecipeResultsComponent,
+    FoodGroupsComponent,
   ],
   imports: [
     BrowserModule,

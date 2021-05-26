@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-ingredient-list',
@@ -10,6 +11,7 @@ export class IngredientListComponent implements OnInit {
   model: any = {};
   ingredient: string;
   ingredients: Array<string> = [];
+  subject: BehaviorSubject<string>;
 
   constructor(private toastr: ToastrService) {}
 
@@ -54,6 +56,7 @@ export class IngredientListComponent implements OnInit {
     let url = 'http://localhost:5000/api/test/ingredient';
 
     console.log('Do the API request for a recipe!');
+    this.subject = new BehaviorSubject('Hello Observable.');
 
     function pass(res) {
       var result = res.json();
