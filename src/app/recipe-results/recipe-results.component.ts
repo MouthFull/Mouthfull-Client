@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { async } from 'rxjs';
 import { RecipeService } from '../recipe.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-results',
@@ -8,15 +8,11 @@ import { RecipeService } from '../recipe.service';
   styleUrls: ['./recipe-results.component.css'],
 })
 export class RecipeResultsComponent implements OnInit {
-  constructor(public recipeService: RecipeService) {
-    recipeService.sayHello();
-    recipeService.recipeResults$.subscribe((val) => {
-      console.log(val);
-    });
+  recipes: [];
 
-    recipeService.recipeArray$.subscribe((val) => {
-      console.log(val);
-    });
+  constructor(public recipeService: RecipeService, private router: Router) {
+    this.recipes = JSON.parse(localStorage.getItem('recipes'));
+    console.log(this.recipes);
   }
 
   ngOnInit(): void {}
@@ -26,7 +22,6 @@ export class RecipeResultsComponent implements OnInit {
     let url =
       'https://mouthfullservice.azurewebsites.net/api/recipe/' +
       event.target.value;
-    // let url = 'http://localhost:5000/api/test/ingredient';
     console.log('sending request to ', url);
 
     function pass(res) {
@@ -34,6 +29,7 @@ export class RecipeResultsComponent implements OnInit {
       result.then(
         function (data) {
           console.log(data);
+          localStorage.setItem('recipeSummary', JSON.stringify(data));
         },
         function (err) {
           console.error(err);
@@ -48,6 +44,8 @@ export class RecipeResultsComponent implements OnInit {
     let response = fetch(url, { method: 'get' });
 
     response.then(pass, fail);
+
+    this.router.navigate(['recipe-summary']);
   }
 }
 

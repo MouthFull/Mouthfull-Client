@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject } from 'rxjs';
 import { RecipeService } from '../recipe.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ingredient-list',
@@ -12,7 +13,9 @@ export class IngredientListComponent implements OnInit {
   model: any = {};
   ingredient: string;
   ingredients: Array<string> = [];
-  subject: BehaviorSubject<string>;
+  ingredientString = '';
+  _recipeService: RecipeService;
+  // subject: BehaviorSubject<string>;
   recipes = [
     {
       id: 658509,
@@ -58,11 +61,16 @@ export class IngredientListComponent implements OnInit {
     },
   ];
 
-  constructor(private toastr: ToastrService, recipeService: RecipeService) {
+  constructor(
+    private toastr: ToastrService,
+    recipeService: RecipeService,
+    private router: Router
+  ) {
     recipeService.addRecipe(
       'Hello from ingredient-list cstor via Behavior Subjecct'
     );
-    recipeService.addRecipesToArray(this.recipes);
+    this._recipeService = recipeService;
+    // this._recipeService.addRecipesToArray(this.recipes);
   }
 
   ngOnInit(): void {}
@@ -101,17 +109,24 @@ export class IngredientListComponent implements OnInit {
   }
 
   getRecipe() {
-    // let url =
-    //   'https://mouthfullservice.azurewebsites.net/api/mouthfull/broccoli';
-    let url = 'http://localhost:5000/api/test/ingredient';
+    let ingredientString = '';
+    this.ingredients.forEach((ingredient) => {
+      ingredientString += ingredient + ',';
+    });
+    ingredientString = ingredientString.slice(0, ingredientString.length - 1);
 
-    console.log('Do the API request for a recipe!');
+    let url =
+      'https://mouthfullservice.azurewebsites.net/api/mouthfull/' +
+      ingredientString;
+
+    console.log('send the request to :', url);
 
     function pass(res) {
       var result = res.json();
       result.then(
         function (data) {
-          console.log(data);
+          console.log('data retrieved: ', data);
+          localStorage.setItem('recipes', JSON.stringify(data));
         },
         function (err) {
           console.error(err);
@@ -123,10 +138,10 @@ export class IngredientListComponent implements OnInit {
       console.error(res);
     }
 
-    // this.router.navigate(['recipe-results'], { relativeTo: this.route });
-    // let response = fetch(url, { method: 'get' });
+    let response = fetch(url, { method: 'get' });
+    response.then(pass, fail);
 
-    // response.then(pass, fail);
+    this.router.navigate(['animation']);
   }
 }
 

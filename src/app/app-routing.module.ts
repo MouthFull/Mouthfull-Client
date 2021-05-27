@@ -17,3 +17,7 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
+
+function goToRecipeResults() {
+  // router.navigate(['/role']);
+}

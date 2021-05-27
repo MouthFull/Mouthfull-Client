@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RecipeService {
+  recipeBaseUrl =
+    'https://mouthfullservice.azurewebsites.net/api/mouthfull/broccoli';
   str: string;
   private readonly _recipeResults = new BehaviorSubject<string>(
     'Hello from Behavior Subject'
@@ -14,8 +17,6 @@ export class RecipeService {
 
   readonly recipeResults$ = this._recipeResults.asObservable();
   readonly recipeArray$ = this._recipeArray.asObservable();
-
-  constructor() {}
 
   get recipes(): string {
     return this._recipeResults.getValue();

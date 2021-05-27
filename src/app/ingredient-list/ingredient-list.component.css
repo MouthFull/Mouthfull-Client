@@ -5,3 +5,8 @@ h1 {
   color: dodgerblue;
   font-family: "Pattaya", sans-serif;
 }
+
+h2 {
+  color: darkgrey;
+  font-size: 1rem;
+}

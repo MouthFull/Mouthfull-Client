@@ -6,10 +6,7 @@
   </div>
 
   <div class="row">
-    <div
-      class="card-group"
-      *ngFor="let recipe of recipeService.recipeArray$ | async"
-    >
+    <div class="card-group" *ngFor="let recipe of recipes">
       <div class="card ml-3 mt-3">
         <img
           class="card-img-top ml-2"

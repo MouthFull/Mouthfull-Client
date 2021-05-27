@@ -10,6 +10,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { IngredientListComponent } from './ingredient-list/ingredient-list.component';
 import { RecipeResultsComponent } from './recipe-results/recipe-results.component';
 import { FoodGroupsComponent } from './food-groups/food-groups.component';
+import { DishesComponent } from './dishes/dishes.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,8 @@ import { FoodGroupsComponent } from './food-groups/food-groups.component';
     IngredientListComponent,
     RecipeResultsComponent,
     FoodGroupsComponent,
+    DishesComponent,
+    // FormsModule,
   ],
   imports: [
     BrowserModule,
