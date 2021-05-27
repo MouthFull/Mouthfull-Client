@@ -91,7 +91,7 @@ export class DishesComponent implements OnInit {
 
         setTimeout(() => {
           console.log('Timed out!');
-          this.router.navigate(['recipes']);
+          this.router.navigate(['recipe-summary']);
           let cnv = document.body.getElementsByTagName('canvas');
           cnv[0].parentNode.removeChild(cnv[0]);
         }, 4500);

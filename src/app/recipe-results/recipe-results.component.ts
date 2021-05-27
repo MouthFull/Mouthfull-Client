@@ -45,7 +45,7 @@ export class RecipeResultsComponent implements OnInit {
 
     response.then(pass, fail);
 
-    this.router.navigate(['recipe-summary']);
+    this.router.navigate(['dishes']);
   }
 }
 
