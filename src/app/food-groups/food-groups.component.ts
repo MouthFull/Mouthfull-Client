@@ -73,7 +73,7 @@ export class FoodGroupsComponent implements OnInit {
         this.location = s.createVector(s.width / 2, s.height / 2);
         this.speed = s.createVector(s.random(-1, 1), s.random(-1, 1));
         this.speed.normalize();
-        this.speed.mult(s.random(2, 6));
+        this.speed.mult(s.random(1.75, 6));
         this.size = s.random(15, 40);
       };
 
