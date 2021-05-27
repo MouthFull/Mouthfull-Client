@@ -6,7 +6,10 @@
   </div>
 
   <div class="row">
-    <div class="card-group" *ngFor="let recipe of recipes">
+    <div
+      class="card-group"
+      *ngFor="let recipe of recipeService.recipeArray$ | async"
+    >
       <div class="card ml-3 mt-3">
         <img
           class="card-img-top ml-2"
@@ -27,22 +30,19 @@
           </p>
 
           <p class="card-text">
-            <small class="text-muted">Get recipe</small>
+            <small class="text-muted">
+              <button
+                class="btn btn-outline-dark"
+                name="recipeId"
+                value="{{ recipe.id }}"
+                (click)="requestRecipe($event)"
+              >
+                Get recipe
+              </button>
+            </small>
           </p>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<!-- 
-//* id,
-//* EntityId,
-//* title,
-//* image,
-//* favorite,
-//* comment,
-//*
-//* missed ingredients  -	 missedIngredientCount
-//* unused ingredients  -	 unusedIngredientCount
-//* usedIngredients		  -	 usedIngredientCount -->

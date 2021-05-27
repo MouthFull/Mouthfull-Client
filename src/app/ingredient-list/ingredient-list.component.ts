@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject } from 'rxjs';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-ingredient-list',
@@ -12,8 +13,57 @@ export class IngredientListComponent implements OnInit {
   ingredient: string;
   ingredients: Array<string> = [];
   subject: BehaviorSubject<string>;
+  recipes = [
+    {
+      id: 658509,
+      image: 'https://spoonacular.com/recipeImages/658509-312x231.jpg',
+      missedIngredientCount: 2,
+      missedIngredients: [
+        {
+          id: 11215,
+          image: 'https://spoonacular.com/cdn/ingredients_100x100/garlic.png',
+          name: 'garlic',
+          entityId: 0,
+        },
+        {
+          id: 9152,
+          image:
+            'https://spoonacular.com/cdn/ingredients_100x100/lemon-juice.jpg',
+          name: 'lemon juice',
+          entityId: 0,
+        },
+      ],
+      title: 'Roasted Broccoli with Lemon and Garlic',
+      unusedIngredients: [
+        {
+          id: 11090,
+          image: 'https://spoonacular.com/cdn/ingredients_100x100/broccoli.jpg',
+          name: 'broccoli',
+          entityId: 0,
+        },
+      ],
+      usedIngredientCount: 1,
+      usedIngredients: [
+        {
+          id: 10011090,
+          image: 'https://spoonacular.com/cdn/ingredients_100x100/broccoli.jpg',
+          name: 'broccoli florets',
+          entityId: 0,
+        },
+      ],
+      favorite: false,
+      comment: null,
+      entityId: 0,
+      neededingredients: null,
+    },
+  ];
 
-  constructor(private toastr: ToastrService) {}
+  constructor(private toastr: ToastrService, recipeService: RecipeService) {
+    recipeService.addRecipe(
+      'Hello from ingredient-list cstor via Behavior Subjecct'
+    );
+    recipeService.addRecipesToArray(this.recipes);
+  }
 
   ngOnInit(): void {}
 
@@ -56,7 +106,6 @@ export class IngredientListComponent implements OnInit {
     let url = 'http://localhost:5000/api/test/ingredient';
 
     console.log('Do the API request for a recipe!');
-    this.subject = new BehaviorSubject('Hello Observable.');
 
     function pass(res) {
       var result = res.json();
@@ -74,6 +123,7 @@ export class IngredientListComponent implements OnInit {
       console.error(res);
     }
 
+    // this.router.navigate(['recipe-results'], { relativeTo: this.route });
     // let response = fetch(url, { method: 'get' });
 
     // response.then(pass, fail);
