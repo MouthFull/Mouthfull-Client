@@ -1,4 +1,4 @@
-name: CI-pipeline-main
+name: CI-pipeline-ng
 on:
   push:
     branches:

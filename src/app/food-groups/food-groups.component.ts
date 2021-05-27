@@ -102,7 +102,7 @@ export class FoodGroupsComponent implements OnInit {
           this.router.navigate(['recipes']);
           let cnv = document.body.getElementsByTagName('canvas');
           cnv[0].parentNode.removeChild(cnv[0]);
-        }, 6500);
+        }, 5500);
       };
 
       s.draw = () => {

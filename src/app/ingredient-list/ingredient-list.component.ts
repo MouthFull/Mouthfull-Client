@@ -83,8 +83,8 @@ export class IngredientListComponent implements OnInit {
       return console.log('no blanks!');
     }
 
-    if (this.ingredient === 'asparagus') {
-      this.toastr.error('asparagus is not a valid ingredient');
+    if (this.ingredient === 'asparagus' || this.ingredient === 'thumb tacks') {
+      this.toastr.error(this.ingredient + ' is not a valid ingredient');
     } else {
       console.log('Adding ingredient', this.ingredient);
 
