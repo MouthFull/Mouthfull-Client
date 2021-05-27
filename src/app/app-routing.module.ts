@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DishesComponent } from './dishes/dishes.component';
 import { FoodGroupsComponent } from './food-groups/food-groups.component';
 import { IngredientListComponent } from './ingredient-list/ingredient-list.component';
 import { RecipeResultsComponent } from './recipe-results/recipe-results.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'recipes', component: RecipeResultsComponent },
   { path: 'animation', component: FoodGroupsComponent },
   { path: 'recipe-summary', component: RecipeSummaryComponent },
+  { path: 'dishes', component: DishesComponent },
 ];
 
 @NgModule({
