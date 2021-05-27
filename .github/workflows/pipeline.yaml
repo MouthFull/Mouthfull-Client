@@ -9,8 +9,6 @@ jobs:
     env:
       DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
       DOCKER_USER: ${{ secrets.DOCKER_USER }}
-    needs:
-      - analyze
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
