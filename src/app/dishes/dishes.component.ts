@@ -65,7 +65,7 @@ export class DishesComponent implements OnInit {
         this.location = s.createVector(s.width / 2, s.height / 2);
         this.speed = s.createVector(s.random(-5, 5), s.random(-5, 5));
         this.speed.normalize();
-        this.speed.mult(s.random(5));
+        this.speed.mult(s.random(2, 6));
         this.size = s.random(15, 40);
       };
 
@@ -94,7 +94,7 @@ export class DishesComponent implements OnInit {
           this.router.navigate(['recipe-summary']);
           let cnv = document.body.getElementsByTagName('canvas');
           cnv[0].parentNode.removeChild(cnv[0]);
-        }, 4500);
+        }, 6500);
       };
 
       s.draw = () => {

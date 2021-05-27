@@ -71,9 +71,9 @@ export class FoodGroupsComponent implements OnInit {
       const Mover = function (emoji: string) {
         this.ingredient = emoji;
         this.location = s.createVector(s.width / 2, s.height / 2);
-        this.speed = s.createVector(s.random(-5, 5), s.random(-5, 5));
+        this.speed = s.createVector(s.random(-1, 1), s.random(-1, 1));
         this.speed.normalize();
-        this.speed.mult(s.random(5));
+        this.speed.mult(s.random(2, 6));
         this.size = s.random(15, 40);
       };
 
@@ -102,7 +102,7 @@ export class FoodGroupsComponent implements OnInit {
           this.router.navigate(['recipes']);
           let cnv = document.body.getElementsByTagName('canvas');
           cnv[0].parentNode.removeChild(cnv[0]);
-        }, 4500);
+        }, 6500);
       };
 
       s.draw = () => {
