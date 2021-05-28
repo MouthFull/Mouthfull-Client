@@ -8,5 +8,15 @@ h1 {
 
 h2 {
   color: darkgrey;
-  font-size: 1rem;
+  font-size: 0.75rem;
+}
+
+h2:hover {
+  color: lightgrey;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+button {
+  width: 100%;
 }
