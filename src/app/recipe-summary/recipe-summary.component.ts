@@ -16,7 +16,10 @@ export class RecipeSummaryComponent implements OnInit {
     console.log(this.recipe);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.recipe = JSON.parse(localStorage.getItem('recipeSummary'));
+    console.log(this.recipe);
+  }
 }
 
 // https://spoonacular.com/food-api/docs#Summarize-Recipe

@@ -15,51 +15,6 @@ export class IngredientListComponent implements OnInit {
   ingredients: Array<string> = [];
   ingredientString = '';
   _recipeService: RecipeService;
-  // subject: BehaviorSubject<string>;
-  recipes = [
-    {
-      id: 658509,
-      image: 'https://spoonacular.com/recipeImages/658509-312x231.jpg',
-      missedIngredientCount: 2,
-      missedIngredients: [
-        {
-          id: 11215,
-          image: 'https://spoonacular.com/cdn/ingredients_100x100/garlic.png',
-          name: 'garlic',
-          entityId: 0,
-        },
-        {
-          id: 9152,
-          image:
-            'https://spoonacular.com/cdn/ingredients_100x100/lemon-juice.jpg',
-          name: 'lemon juice',
-          entityId: 0,
-        },
-      ],
-      title: 'Roasted Broccoli with Lemon and Garlic',
-      unusedIngredients: [
-        {
-          id: 11090,
-          image: 'https://spoonacular.com/cdn/ingredients_100x100/broccoli.jpg',
-          name: 'broccoli',
-          entityId: 0,
-        },
-      ],
-      usedIngredientCount: 1,
-      usedIngredients: [
-        {
-          id: 10011090,
-          image: 'https://spoonacular.com/cdn/ingredients_100x100/broccoli.jpg',
-          name: 'broccoli florets',
-          entityId: 0,
-        },
-      ],
-      favorite: false,
-      comment: null,
-      entityId: 0,
-      neededingredients: null,
-    },
-  ];
 
   constructor(
     private toastr: ToastrService,
@@ -125,12 +80,9 @@ export class IngredientListComponent implements OnInit {
       var result = res.json();
       result.then(
         function (data) {
-          console.log('data retrieved: ', data);
           localStorage.setItem('recipes', JSON.stringify(data));
         },
-        function (err) {
-          console.error(err);
-        }
+        function (err) {}
       );
     }
 
@@ -144,14 +96,3 @@ export class IngredientListComponent implements OnInit {
     this.router.navigate(['animation']);
   }
 }
-
-//* id,
-//* EntityId,
-//* title,
-//* image,
-//* favorite,
-//* comment,
-//*
-//* missed ingredients  -	 missedIngredientCount
-//* unused ingredients  -	 unusedIngredientCount
-//* usedIngredients		  -	 usedIngredientCount

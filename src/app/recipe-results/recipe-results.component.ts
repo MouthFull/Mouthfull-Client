@@ -13,9 +13,14 @@ export class RecipeResultsComponent implements OnInit {
   constructor(public recipeService: RecipeService, private router: Router) {
     this.recipes = JSON.parse(localStorage.getItem('recipes'));
     console.log(this.recipes);
+    //I think that this just needs to be in the ngOnInit based on Thursday's lecture,
+    //but I'm not entirely sure and I haven't had time to test this out and make sure it works.
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.recipes = JSON.parse(localStorage.getItem('recipes'));
+    console.log(this.recipes);
+  }
 
   requestRecipe(event) {
     console.log('Requesting recipe by id:', event.target.value);
