@@ -1,6 +1,6 @@
-# WhatsInYourFridge
+# Mouthfull 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.9.
+Mouthfull is an open source recipe exploration service, helping users to reduce food waste, and find creative culinary solutions based on their input. The mission is to provide a set of services to support personalized recommendations based on what ingredients are already in their fridge, and browse recipes that have been viewed by other users.
 
 ## Development server
 
