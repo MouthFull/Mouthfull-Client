@@ -4,11 +4,9 @@ Mouthfull is an open source recipe exploration service, helping users to reduce 
 
 ## Technologies Used
 
-- Angular     - version 11.0
+-  Angular     - version 11.0
 - .NET webapi - version 5.0
 - .Net MVC    - version 5.0
-- Docker      - version 20.10.06
-- Azure Data Studio
 
 ## Features
 
@@ -25,15 +23,11 @@ Mouthfull is an open source recipe exploration service, helping users to reduce 
 
 ## Getting started
 
-
+git clone https://github.com/MouthFull/Mouthfull-Client.git
 
 ### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-### Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ### Build
 
@@ -47,6 +41,9 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+## Usage
+
+- Navigate the main page at local
 
 ## Contributors
 - Elwyn Palmerton
