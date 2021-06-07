@@ -54,4 +54,4 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 This project uses the following license: 
 
-([MIT License](https://github.com/MouthFull/Mouthfull/blob/main/LICENSE))
+ [MIT License](https://github.com/MouthFull/Mouthfull-Client/blob/main/license.readme)
