@@ -43,7 +43,16 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Usage
 
-- Navigate the main page at local
+- Navigate the main page at localhost:4200
+- Input an ingredient and click the "+" button to include it in your list
+- Click "search" when you are ready to search for recipes
+
+<img width="1253" alt="Screen Shot 2021-06-07 at 3 49 27 PM" src="https://user-images.githubusercontent.com/58092988/121079313-f8a59880-c7a7-11eb-96e4-82db0413c35d.png">
+
+- Click on a meal idea to navigate to the recipe summary
+
+<img width="1192" alt="Screen Shot 2021-06-07 at 3 50 05 PM" src="https://user-images.githubusercontent.com/58092988/121079376-0bb86880-c7a8-11eb-904f-e087662415c7.png">
+
 
 ## Contributors
 - Elwyn Palmerton
