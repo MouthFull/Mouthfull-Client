@@ -71,7 +71,7 @@ export class IngredientListComponent implements OnInit {
     ingredientString = ingredientString.slice(0, ingredientString.length - 1);
 
     let url =
-      'https://mouthfullservice.azurewebsites.net/api/mouthfull/' +
+      'http://localhost:5000/api/mouthfull/' +
       ingredientString;
 
     console.log('send the request to :', url);

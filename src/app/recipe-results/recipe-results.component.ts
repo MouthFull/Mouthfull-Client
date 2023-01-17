@@ -25,7 +25,7 @@ export class RecipeResultsComponent implements OnInit {
   requestRecipe(event) {
     console.log('Requesting recipe by id:', event.target.value);
     let url =
-      'https://mouthfullservice.azurewebsites.net/api/recipe/' +
+      'http://localhost:5000/api/recipe/' +
       event.target.value;
     console.log('sending request to ', url);
 
@@ -46,9 +46,29 @@ export class RecipeResultsComponent implements OnInit {
       console.error(res);
     }
 
-    let response = fetch(url, { method: 'get' });
+    let responseSummary = fetch(url, { method: 'get' });
 
-    response.then(pass, fail);
+    function infoPass(res) {
+      var result = res.json();
+      result.then(
+        function (data) {
+          console.log(data);
+          localStorage.setItem('spoonacularSourceUrl', JSON.stringify(data.spoonacularSourceUrl));
+        },
+        function (err) {
+          console.error(err);
+        }
+      );
+    }
+
+
+    
+    const infoUrl = 'http://localhost:5000/api/information/' + event.target.value;
+    let recipeInformationResponse = fetch(infoUrl, {method: 'get'});
+    
+    
+    recipeInformationResponse.then(infoPass, fail);
+    responseSummary.then(pass, fail);
 
     this.router.navigate(['dishes']);
   }

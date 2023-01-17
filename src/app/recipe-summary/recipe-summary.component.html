@@ -3,7 +3,9 @@
     <div class="col-2"></div>
     <div class="col-8">
       <h2 class="title">{{ recipe.title }}</h2>
-      <p>{{ recipe.summary }}</p>
+      <div [innerHTML]="recipe.summary"></div>
+    <br/>
+      <a href={{this.sourceUrl}}>See the recipe!</a>
     </div>
   </div>
 </div>
